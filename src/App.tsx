@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import { useState } from "react";
+import DerivedState from "./pages/DerivedState";
 import Lifetimes from "./pages/Lifetimes";
 
-type Page = "home" | "lifetimes";
+type Page = "home" | "lifetimes" | "derived-state";
 
 const pages = [
   {
@@ -14,6 +15,11 @@ const pages = [
     id: "lifetimes",
     label: "Lifetimes",
     contents: <Lifetimes />,
+  },
+  {
+    id: "derived-state",
+    label: "Derived State",
+    contents: <DerivedState />,
   },
 ] as const;
 
@@ -30,7 +36,7 @@ export default function App() {
           <nav className="fixed right-auto w-64">
             <ul className="space-y-2">
               {pages.map((page) => (
-                <li>
+                <li key={page.id}>
                   <a
                     className={clsx(
                       page.id === activePage && "font-semibold text-pink"
@@ -57,5 +63,5 @@ export default function App() {
 }
 
 function Home() {
-  return <div>Hello!</div>;
+  return <div>TODO</div>;
 }
