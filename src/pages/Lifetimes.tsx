@@ -1,4 +1,5 @@
 import { Dispatch, useReducer, useState } from "react";
+import Example from "../components/Example";
 import Tabs, { Tab } from "../components/Tabs";
 
 type TabId = "app" | "local";
@@ -57,7 +58,7 @@ export default function Lifetimes() {
         are unmounted. If a piece of state was local to those contents, it is
         lost.
       </p>
-      <div className="border-2 p-4 rounded-xl">
+      <Example>
         <Tabs
           onClick={(tabId: TabId) =>
             dispatch({ type: ActionType.SetActiveTab, id: tabId })
@@ -65,7 +66,7 @@ export default function Lifetimes() {
           active={state.activeTab}
           tabs={tabs}
         />
-      </div>
+      </Example>
     </div>
   );
 }

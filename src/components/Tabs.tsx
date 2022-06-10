@@ -1,19 +1,21 @@
 import clsx from "clsx";
 import { ReactNode } from "react";
 
-export interface Tab<T> {
+type Id = number | string;
+
+export interface Tab<T extends Id> {
   id: T;
   label: string;
   contents: ReactNode;
 }
 
-interface TabsProps<T> {
+interface TabsProps<T extends Id> {
   active: T;
   onClick: (id: T) => void;
   tabs: Tab<T>[];
 }
 
-export default function Tabs<T extends string>({
+export default function Tabs<T extends Id>({
   active,
   onClick,
   tabs,
