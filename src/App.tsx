@@ -1,11 +1,18 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
+import ComplexDependencies from "./pages/ComplexDependencies";
 import DerivedState from "./pages/DerivedState";
 import Lifetimes from "./pages/Lifetimes";
 
-type Page = "home" | "lifetimes" | "derived-state";
+type PageId = "home" | "lifetimes" | "derived-state" | "complex-dependencies";
 
-const pages = [
+interface Page {
+  id: PageId;
+  label: string;
+  contents: ReactNode;
+}
+
+const pages: Page[] = [
   {
     id: "home",
     label: "Home",
@@ -18,13 +25,18 @@ const pages = [
   },
   {
     id: "derived-state",
-    label: "Derived State",
+    label: "Derived state",
     contents: <DerivedState />,
   },
-] as const;
+  {
+    id: "complex-dependencies",
+    label: "Complex dependencies",
+    contents: <ComplexDependencies />,
+  },
+];
 
 export default function App() {
-  const [activePage, setActivePage] = useState<Page>("home");
+  const [activePage, setActivePage] = useState<PageId>("home");
 
   return (
     <div>

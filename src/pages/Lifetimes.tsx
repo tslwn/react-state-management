@@ -1,5 +1,5 @@
 import { Dispatch, useReducer, useState } from "react";
-import Tabs, { Tab } from "../components/tabs/Tabs";
+import Tabs, { Tab } from "../components/Tabs";
 
 type TabId = "app" | "local";
 
