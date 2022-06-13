@@ -1,10 +1,16 @@
 import clsx from "clsx";
 import { ReactNode, useState } from "react";
 import ComplexDependencies from "./pages/ComplexDependencies";
+import Context from "./pages/Context";
 import DerivedState from "./pages/DerivedState";
 import Lifetimes from "./pages/Lifetimes";
 
-type PageId = "home" | "lifetimes" | "derived-state" | "complex-dependencies";
+type PageId =
+  | "home"
+  | "lifetimes"
+  | "derived-state"
+  | "complex-dependencies"
+  | "context";
 
 interface Page {
   id: PageId;
@@ -32,6 +38,11 @@ const pages: Page[] = [
     id: "complex-dependencies",
     label: "Complex dependencies",
     contents: <ComplexDependencies />,
+  },
+  {
+    id: "context",
+    label: "Context",
+    contents: <Context />,
   },
 ];
 
