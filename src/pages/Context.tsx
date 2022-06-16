@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { Dispatch, ReactNode, useReducer } from "react";
 import Button from "../components/Button";
 import Example from "../components/Example";
-import { useCounter } from "../hooks/use-counter";
 import {
   Action,
   initialState,
@@ -45,7 +44,6 @@ export default function Context() {
           <ContextSubtree />
         </ThemeProvider>
       </Example>
-      <p>Compound components</p>
     </div>
   );
 }
